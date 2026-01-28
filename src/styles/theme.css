@@ -1,0 +1,133 @@
+:root{
+    /* FARM BRAND */
+    --green-900:#064e3b;
+    --green-800:#065f46;
+    --green-700:#047857;
+    --green-600:#059669;
+    --green-500:#10b981;
+  
+    /* SOIL / WHEAT ACCENT */
+    --soil-700:#7c4a1e;
+    --soil-100:#fff7ed;
+  
+    /* BASE */
+    --bg:#ffffff;
+    --surface:#fbfdfb;
+    --muted:#f2f7f3;
+    --text:#0f172a;
+    --sub:#334155;
+    --border:#e3efe6;
+  
+    --radius:18px;
+    --radius-sm:14px;
+    --shadow: 0 14px 35px rgba(2, 44, 34, 0.12);
+    --shadow-sm: 0 6px 18px rgba(2, 44, 34, 0.10);
+  
+    --max: 1100px;
+  }
+  
+  *{ box-sizing:border-box; }
+  html, body{ height:100%; }
+  body{
+    margin:0;
+    direction: rtl;
+  
+    /* Farmer vibe: sky/field + soft grain dots */
+    background:
+      radial-gradient(900px 320px at 50% -80px, rgba(16,185,129,0.25), transparent 70%),
+      linear-gradient(180deg, rgba(255,247,237,0.55), rgba(255,255,255,0.0) 35%),
+      radial-gradient(circle at 1px 1px, rgba(6,95,70,0.08) 1px, transparent 0) 0 0/18px 18px,
+      var(--bg);
+  
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  
+  a{ color:inherit; text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  
+  .container{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .section{ padding: 44px 0; }
+  
+  .sectionAlt{
+    background:
+      linear-gradient(180deg, rgba(5,150,105,0.08), rgba(5,150,105,0.03));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .h2{
+    margin:0 0 14px 0;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+  }
+  
+  .p{
+    margin:0;
+    color: var(--sub);
+    line-height: 1.9;
+  }
+  
+  .card{
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 900;
+    cursor:pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  
+  .btn:active{ transform: translateY(1px); }
+  
+  .btnPrimary{
+    background: linear-gradient(135deg, var(--green-700), var(--green-500));
+    color:#fff;
+    box-shadow: 0 16px 26px rgba(5,150,105,0.22);
+  }
+  .btnPrimary:hover{ filter: brightness(0.98); }
+  
+  .btnGhost{
+    background: #fff;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btnGhost:hover{
+    border-color: rgba(5,150,105,0.35);
+    box-shadow: 0 16px 26px rgba(5,150,105,0.12);
+  }
+  
+  .card{
+    background:
+      radial-gradient(700px 200px at 30% 0%, rgba(16,185,129,0.08), transparent 60%),
+      #fff;
+  }
+
+  .sectionHeader{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .sectionHeader .meta{
+    color: var(--sub);
+    font-size: 13px;
+  }
+  

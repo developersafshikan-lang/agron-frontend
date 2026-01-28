@@ -1,0 +1,21 @@
+.variantsGrid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  
+  .variantCard{
+    padding: 14px;
+  }
+  
+  .badge{
+    display:inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 12px;
+    background: rgba(5,150,105,0.10);
+    color: var(--green-900);
+    border: 1px solid rgba(5,150,105,0.18);
+  }
+  
