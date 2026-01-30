@@ -1,49 +1,109 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Services.css";
+import stepProtect from "/src/assets/step-1.png";
+import stepGrow from "/src/assets/step-2.png";
+import stepObserve from "/src/assets/step-3.png";
+import stepDecide from "/src/assets/step-4.png";
 
 export default function Services() {
-  const cards = [
+  const [open, setOpen] = useState(null);
+
+  const steps = [
     {
-      title: "🚁 ڈرون اسپرے سروس",
-      desc: "فصلوں کے لیے تیز، یکساں اور محفوظ اسپرے۔ کم ضیاع، بہتر کوریج۔",
-      points: ["فی ایکڑ سروس", "فیلڈ کے مطابق پلان", "محفوظ آپریشن"],
+      id: 1,
+      title: "فصل کا تحفظ",
+      tagline: "جتنی ضرورت، اتنا اسپرے",
+      image: "/src/assets/step-1.png",
+      details: [
+        "جڑی بوٹی مار، فنگس اور کیڑے مار اسپرے",
+        "یکساں کوریج، کم کیمیکل ضیاع",
+        "فصل اور زمین کے لیے محفوظ",
+      ],
     },
     {
-      title: "🛒 Ino Drone (Sale)",
-      desc: "Ino Drone خریدنے کے لیے بنیادی معلومات اور دستیابی (placeholder).",
-      points: ["ڈیمو/تربیت", "پارٹس سپورٹ", "وارنٹی/سروس"],
+      id: 2,
+      title: "بہتر افزائش",
+      tagline: "ہر بیج صحیح جگہ",
+      image: "/src/assets/step-2.png",
+      details: [
+        "کھاد اور بیج اسپرے سہولت",
+        "گرینول سپریڈنگ (0.5–0.6 ملی میٹر)",
+        "بڑے اور درمیانے کھیتوں کے لیے موزوں",
+      ],
     },
     {
-      title: "🧑‍✈️ پائلٹس + ٹیک سپورٹ",
-      desc: "تربیت یافتہ پائلٹس، سیفٹی SOPs، اور آپریشنل ٹیک سپورٹ۔",
-      points: ["ٹرینڈ ٹیم", "سیفٹی چیک لسٹ", "فیلڈ سپورٹ"],
+      id: 3,
+      title: "نگرانی",
+      tagline: "مسئلہ آنے سے پہلے خبردار",
+      image: "/src/assets/step-3.png",
+      details: [
+        "فصل کی فضائی نگرانی",
+        "ابتدائی بیماری اور کمزوری کی نشاندہی",
+        "ڈیٹا پر مبنی مشاہدہ",
+      ],
+    },
+    {
+      id: 4,
+      title: "درست فیصلہ",
+      tagline: "اندازے نہیں، ڈیٹا پر فیصلے",
+      image: "/src/assets/step-4.png",
+      details: [
+        "پیداوار کے بہتر اندازے",
+        "کٹائی کی منصوبہ بندی",
+        "نقصان میں نمایاں کمی",
+      ],
     },
   ];
 
   return (
     <section id="services" className="section sectionAlt">
       <div className="container">
-        <div className="sectionHeader">
-          <h2 className="h2">🚁 اسپرے سروسز</h2>
-          <div className="meta">کسانوں کے لیے فوری، آسان سروس</div>
+        <div className="sectionHeader center">
+          <h2 className="h2 urdu">مٹی سے آسمان تک</h2>
+          <p className="sectionSub urdu">
+            فصل کی مکمل کہانی — تحفظ سے فیصلے تک
+          </p>
         </div>
 
-        <div className="servicesGrid">
-          {cards.map((c) => (
-            <div key={c.title} className="card cardPad cardHover">
-              <div className="cardTitle">{c.title}</div>
-              <div className="cardSub">{c.desc}</div>
-              <ul className="bullets">
-                {c.points.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
-              </ul>
+        <div className="stepsFlow">
+          {steps.map((s, i) => (
+            <div
+              key={s.id}
+              className={`stepBox ${open === s.id ? "open" : ""}`}
+              style={{ backgroundImage: `url(${s.image})` }}
+              onMouseEnter={() => setOpen(s.id)}
+              onMouseLeave={() => setOpen(null)}
+              onClick={() => setOpen(open === s.id ? null : s.id)}
+            >
+              <div className="stepOverlay" />
+
+              <div className="stepContent">
+                <div className="stepHeader">
+                  <div className="stepNo urdu">قدم {s.id}</div>
+                  <div>
+                    <h3 className="stepTitle urdu">{s.title}</h3>
+                    <div className="stepTagline urdu">{s.tagline}</div>
+                  </div>
+                </div>
+
+                <div className="stepBody">
+                  <ul>
+                    {s.details.map((d) => (
+                      <li key={d} className="urdu">{d}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {i !== steps.length - 1 && (
+                <div className="arrowDown">↓</div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="noteBox">
-          💬 <b>WhatsApp confirmation</b> کے لیے اوپر والا بٹن استعمال کریں — یا بکنگ فارم جمع کرائیں۔
+        <div className="serviceCTA urdu">
+          AGRON کے ساتھ فصل کی کہانی بدلیں — آج ہی رابطہ کریں
         </div>
       </div>
     </section>
