@@ -9,6 +9,7 @@ import Gallery from "../components/Gallery/Gallery.jsx";
 import Testimonials from "../components/Testimonials/Testimonials.jsx";
 import Booking from "../components/Booking/Booking.jsx";
 import Chatbot from "../components/Chatbot/Chatbot.jsx";
+import WhyAgron from "../components/WhyAgron/WhyAgron.jsx";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <WhyAgron />
         <Variants />
         <Services />
         <Areas />

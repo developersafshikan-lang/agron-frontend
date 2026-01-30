@@ -1,21 +1,147 @@
-.variantsGrid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 12px;
+/* Background section */
+.variantsHero {
+  height: 90vh;
+  background-image: url("/src/assets/variants-bg.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Dark overlay */
+.variantsOverlay {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.637),
+    rgba(255, 255, 255, 0.753)
+  );
+}
+/* Horizontal strip */
+.variantStrip {
+  display: flex;
+  height: 100%;
+}
+
+/* Each column */
+.variantColumn {
+  flex: 1;
+  position: relative;
+  transition: flex 0.6s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Expand on hover */
+.variantColumn:hover {
+  flex: 1.6;
+}
+
+/* Inner content */
+.variantContent {
+  width: 100%;
+  padding: 3rem;
+  color: #0F3D2E;;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+/* Reveal text on hover */
+.variantColumn:hover .variantContent {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduce content when not hovered */
+.variantColumn:not(:hover) .variantContent {
+  pointer-events: none;
+}
+
+/* Highlight middle / popular */
+.variantColumn.highlight {
+  background: rgba(0,0,0,0.15);
+}
+
+/* Urdu font */
+.urdu {
+  font-family: "Noto Nastaliq Urdu", serif;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Tag */
+.variantTag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.variantTag.popular {
+  background: rgba(5,150,105,0.7);
+}
+
+/* Name */
+.variantName {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Description */
+.variantDesc {
+  font-size: 1.05rem;
+  line-height: 2;
+  max-width: 420px;
+  margin-bottom: 1.5rem;
+}
+
+/* Specs */
+.variantSpecs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.variantSpecs li {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+/* Button */
+.variantBtn {
+  background: #0f7a4a;
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.variantBtn:hover {
+  background: #0c633d;
+}
+
+/* Mobile fallback */
+@media (max-width: 900px) {
+  .variantStrip {
+    flex-direction: column;
   }
-  
-  .variantCard{
-    padding: 14px;
+
+  .variantColumn {
+    flex: unset;
+    height: 50vh;
   }
-  
-  .badge{
-    display:inline-flex;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 12px;
-    background: rgba(5,150,105,0.10);
-    color: var(--green-900);
-    border: 1px solid rgba(5,150,105,0.18);
+
+  .variantColumn:hover {
+    flex: unset;
   }
-  
+
+  .variantContent {
+    opacity: 1;
+    transform: none;
+  }
+}
