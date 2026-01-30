@@ -1,0 +1,26 @@
+.servicesGrid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+    font-family: "Noto Nastaliq Urdu", serif;
+    direction: rtl;
+  }
+  
+  .bullets{
+    margin: 12px 0 0 0;
+    padding: 0 18px 0 0;
+    color: var(--sub);
+    line-height: 1.9;
+    font-size: 13px;
+  }
+  
+  .noteBox{
+    margin-top: 14px;
+    border-radius: var(--radius);
+    border: 1px dashed rgba(6,95,70,0.25);
+    background: rgba(255,255,255,0.7);
+    padding: 12px 14px;
+    color: var(--sub);
+  }
+  

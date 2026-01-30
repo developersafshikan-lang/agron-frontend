@@ -1,0 +1,29 @@
+.areasGrid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  
+  .pillRow{
+    margin-top: 12px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .mapPlaceholder{
+    margin-top: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(135deg, rgba(16,185,129,0.10), rgba(255,255,255,1));
+    padding: 16px;
+    color: var(--sub);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .logo img {
+    height: 40px;   /* adjust to match your screenshot */
+    width: auto;
+    display: block;
+  }
