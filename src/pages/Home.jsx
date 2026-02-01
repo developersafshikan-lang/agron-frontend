@@ -26,6 +26,9 @@ export default function Home() {
         <Testimonials />
         <Booking />
       </main>
+      <section id="booking">
+        <Booking />
+      </section>
       <Chatbot />
       <footer style={{ padding: 24, borderTop: "1px solid #eee", textAlign: "center" }}>
         <div>© Agron — پاکستان بھر کے کسانوں کے لیے</div>

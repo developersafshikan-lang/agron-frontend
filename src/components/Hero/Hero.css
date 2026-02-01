@@ -1,177 +1,163 @@
 /* ===============================
-   HERO BACKGROUND (SYNGENTA STYLE)
+   HERO BASE
    =============================== */
 
-   .heroBg {
-    position: relative;
-    background-image:
-      linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0.62),
-        rgba(0, 0, 0, 0.38),
-        rgba(0, 0, 0, 0.08)
-      ),
-      url("/src/assets/hero-bg.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.hero {
+  font-family: "Noto Nastaliq Urdu", serif;
+  direction: rtl;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;
+}
+
+/* ===============================
+   HERO BACKGROUND
+   =============================== */
+
+.heroBg {
+  background-image:
+    linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("/src/assets/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===============================
+   HERO OVERLAY
+   =============================== */
+
+.heroOverlay {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 64px 0;
+}
+
+/* ===============================
+   HERO GRID
+   =============================== */
+
+.heroGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-inline: 6vw;
+}
+
+/* LEFT SIDE (VISUAL SPACE) */
+.heroSpacer {
+  grid-column: 2;
+}
+
+/* RIGHT SIDE (CONTENT) */
+.heroContent {
+  grid-column: 1;
+  max-width: 560px;          /* 👈 controls line length */
+  display: grid;
+  gap: 22px;
+  text-align: right;
+}
+
+/* ===============================
+   HEADLINE (FIXED NASTALIQ)
+   =============================== */
+
+.heroTitle {
+  margin: 0;
+  color: #fff;
+}
+
+.heroTitleMain {
+  display: block;
+  font-size: 46px;
+  line-height: 1.28;         /* 👈 Nastaliq breathing room */
+  font-weight: 700;
+}
+
+.heroTitleSub {
+  display: block;
+  margin-top: 12px;
+  font-size: 30px;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+/* ===============================
+   PARAGRAPH
+   =============================== */
+
+.heroLead {
+  margin: 0;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 2;
+  max-width: 520px;
+  color: rgba(255,255,255,0.92);
+}
+
+/* ===============================
+   FIELD TAG STRIP
+   =============================== */
+
+.fieldStrip {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+}
+
+.fieldRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fieldTag {
+  background: rgba(255,255,255,0.88);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media (max-width: 768px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    padding-inline: 20px;
   }
-  
-  .heroOverlay {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    padding: 64px 0 34px;
+
+  .heroSpacer {
+    display: none;
   }
-  
-  /* ===============================
-     HERO CONTENT
-     =============================== */
-  
-  .hero {
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    font-family: "Noto Nastaliq Urdu", serif;
-    direction: rtl;
+
+  .heroContent {
+    grid-column: 1;
+    max-width: 100%;
+    text-align: center;
   }
-  
-  .heroInner {
-    display: grid;
-    gap: 18px;
-    max-width: 680px;
-    margin-right: 0;
-    margin-left: auto;
-    text-align: right;
+
+  .heroTitleMain {
+    font-size: 34px;
+    line-height: 1.35;
   }
-  
-  /* ===============================
-     TEXT
-     =============================== */
-  
-  .heroTitle {
-    margin: 0;
-    font-size: 44px;
-    line-height: 1.18;
-    letter-spacing: -0.6px;
-    color: #ffffff;
+
+  .heroTitleSub {
+    font-size: 24px;
   }
-  
+
   .heroLead {
-    margin: 0;
-    max-width: 680px;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.95;
-    font-size: 16px;
+    margin-inline: auto;
   }
-  
-  /* ===============================
-     ACTIONS
-     =============================== */
-  
-  .heroActions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  .btnPrimary {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  }
-  
-  .btnGhost {
-    color: #ffffff;
-    border-color: rgba(255,255,255,0.45);
-  }
-  
-  /* ===============================
-     FIELD TAG STRIP
-     =============================== */
-  
-  .fieldStrip {
-    margin-top: 14px;
-    border-radius: 999px;
-    padding: 12px 14px;
-    border: 1px solid rgba(255,255,255,0.25);
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(6px);
-  }
-  
-  .fieldRow {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .fieldTag {
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    background: rgba(255,255,255,0.85);
-    border: 1px solid rgba(6, 95, 70, 0.18);
-    padding: 8px 12px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 13px;
-    color: var(--green-900);
-  }
-  
-  /* ===============================
-     KPI CARDS
-     =============================== */
-  
-  .kpiGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-    margin-top: 18px;
-  }
-  
-  .kpiCard {
-    padding: 16px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.35);
-    background: rgba(255,255,255,0.92);
-    box-shadow: var(--shadow-sm);
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  
-  .kpiCard:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-  }
-  
-  .kpiTitle {
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .kpiSub {
-    margin-top: 6px;
-    font-size: 13px;
-    color: var(--sub);
-  }
-  
-  /* ===============================
-     MOBILE
-     =============================== */
-  
-  @media (max-width: 768px) {
-    .heroInner {
-      max-width: 100%;
-      margin: 0 auto;
-      text-align: center;
-    }
-  
-    .heroTitle {
-      font-size: 34px;
-    }
-  
-    .heroActions {
-      justify-content: center;
-    }
-  }
-  
+}

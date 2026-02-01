@@ -1,29 +1,163 @@
-.areasGrid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 12px;
-  }
-  
-  .pillRow{
-    margin-top: 12px;
-    display:flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .mapPlaceholder{
-    margin-top: 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    background:
-      linear-gradient(135deg, rgba(16,185,129,0.10), rgba(255,255,255,1));
-    padding: 16px;
-    color: var(--sub);
-    box-shadow: var(--shadow-sm);
-  }
-  
-  .logo img {
-    height: 40px;   /* adjust to match your screenshot */
-    width: auto;
-    display: block;
-  }
+/* ===============================
+   MAP CARD
+   =============================== */
+
+.mapCard {
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f3f8f4, #ffffff);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   MAP WRAPPER
+   =============================== */
+
+.mapWrapper {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   REGION GLOW SYSTEM
+   =============================== */
+
+.mapWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--focus-x, 50%) var(--focus-y, 50%),
+    rgba(47,165,111,0.22),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* FARM SERVICES — WHOLE COUNTRY */
+.mapWrapper[data-active="farms"]::after {
+  opacity: 1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(47,165,111,0.18),
+    rgba(47,165,111,0.08),
+    transparent 65%
+  );
+}
+
+/* CROPS — PUNJAB + KPK */
+.mapWrapper[data-active="crops"]::after {
+  opacity: 1;
+  background:
+    radial-gradient(circle at 55% 32%, rgba(47,165,111,0.28), transparent 40%),
+    radial-gradient(circle at 52% 22%, rgba(47,165,111,0.22), transparent 38%);
+}
+
+/* ===============================
+   MAP IMAGE
+   =============================== */
+
+.pakistanMap {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.14));
+  transition: transform 0.6s ease;
+}
+
+.mapWrapper:hover .pakistanMap {
+  transform: scale(1.015);
+}
+
+/* ===============================
+   SERVICE MARKERS
+   =============================== */
+
+.serviceMarker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 6;
+  text-align: center;
+}
+
+/* ICON */
+.markerIcon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  background: #2fa56f;
+  color: #fff;
+  font-size: 22px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8px rgba(47,165,111,0.25),
+    0 14px 30px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease;
+}
+
+/* LABEL */
+.markerLabel {
+  margin-top: 10px;
+  display: inline-block;
+  background: #ffffff;
+  padding: 10px 18px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #143c2b;
+  opacity: 0;
+  transform: translateY(6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.markerLabel small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* HOVER BEHAVIOR */
+.serviceMarker:hover .markerIcon {
+  transform: scale(1.15);
+}
+
+.serviceMarker:hover .markerLabel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   MARKER POSITIONS
+   =============================== */
+
+/* Farms — center, whole country */
+.serviceMarker.farms {
+  top: 50%;
+  left: 50%;
+}
+
+/* Crops — Punjab / KPK region */
+.serviceMarker.crops {
+  top: 30%;
+  left: 55%;
+}
+
+
+
+.urduTitle {
+  font-family: "Noto Nastaliq Urdu", serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #143c2b;
+  line-height: 1.9;
+}

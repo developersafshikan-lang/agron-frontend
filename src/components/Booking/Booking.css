@@ -1,0 +1,96 @@
+/* Floating Button */
+.booking-fab {
+  position: fixed;
+  left: 15px;
+  bottom: 90px;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+.booking-fab span {
+  font-family: "Noto Nastaliq Urdu", sans-serif;
+}
+
+/* Booking Panel */
+.booking-panel {
+  position: fixed;
+  left: 15px;
+  bottom: 150px;
+  width: 360px;
+  max-height: 80vh;
+  background: #f5fff2;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+/* Header */
+.booking-header {
+  background: #2e7d32;
+  color: white;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+  font-family: "Noto Nastaliq Urdu", sans-serif;
+}
+
+.booking-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Form */
+.booking-form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form label {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.booking-form button {
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .booking-panel {
+    width: 92%;
+    left: 4%;
+  }
+}

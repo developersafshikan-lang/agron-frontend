@@ -1,0 +1,118 @@
+/* ===============================
+   GALLERY SECTION (FULL WIDTH)
+   =============================== */
+
+.gallery {
+  padding: 60px 0 90px;
+  background: linear-gradient(
+    to bottom,
+    #eef3ee,
+    #e3ebe3
+  );
+  direction: rtl;
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+/* Header only (kept centered) */
+.galleryHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.galleryTitle {
+  font-size: 40px;
+  margin: 0;
+  color: #1f3d2b;
+}
+
+.galleryIntro {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 2;
+  color: #4b5d52;
+}
+
+/* ===============================
+   SLIDER (EDGE TO EDGE)
+   =============================== */
+
+.gallerySlider {
+  position: relative;
+  width: 100vw;                 /* 🔥 full viewport */
+  height: 540px;
+  overflow: hidden;
+}
+
+/* Track MUST be wider than viewport */
+.galleryTrack {
+  display: flex;
+  height: 100%;
+  transition: transform 700ms ease-in-out;
+}
+
+/* Each slide = viewport width */
+.gallerySlide {
+  width: 100vw;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Overlay text */
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 36px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.1)
+  );
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* Dots */
+.galleryDots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.galleryDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.45);
+  cursor: pointer;
+}
+
+.galleryDot.active {
+  background: #fff;
+}
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media (max-width: 768px) {
+  .gallerySlider {
+    height: 340px;
+  }
+
+  .galleryTitle {
+    font-size: 30px;
+  }
+
+  .galleryOverlay {
+    font-size: 18px;
+  }
+}

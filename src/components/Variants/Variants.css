@@ -1,34 +1,85 @@
-/* Background section */
+/* ===============================
+   BACKGROUND SECTION
+   =============================== */
+
 .variantsHero {
   height: 90vh;
   background-image: url("/src/assets/variants-bg.png");
   background-size: cover;
   background-position: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* Dark overlay */
+/* Subtle vignette */
+.variantsHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.45) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.variantPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.variantPill {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  color: #0f3d2e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+
+/* ===============================
+   GLOBAL DARK OVERLAY (ALWAYS)
+   =============================== */
+
 .variantsOverlay {
   height: 100%;
+  position: relative;
+  z-index: 2;
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 0.637),
-    rgba(255, 255, 255, 0.753)
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.35)
   );
 }
-/* Horizontal strip */
+
+/* ===============================
+   STRIP LAYOUT
+   =============================== */
+
 .variantStrip {
   display: flex;
   height: 100%;
 }
 
-/* Each column */
+/* ===============================
+   EACH COLUMN
+   =============================== */
+
 .variantColumn {
   flex: 1;
   position: relative;
-  transition: flex 0.6s ease;
   display: flex;
   align-items: flex-end;
+  transition: flex 0.6s ease;
+  overflow: hidden;
 }
 
 /* Expand on hover */
@@ -36,40 +87,59 @@
   flex: 1.6;
 }
 
-/* Inner content */
-.variantContent {
-  width: 100%;
-  padding: 3rem;
-  color: #0F3D2E;;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
+/* ===============================
+   COLUMN DARK OVERLAY (DEFAULT)
+   =============================== */
+
+.variantColumn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  transition: background 0.4s ease;
+  z-index: 1;
 }
 
-/* Reveal text on hover */
+/* DARKER ON HOVER (FOCUS) */
+.variantColumn:hover::before {
+  background: rgba(0,0,0,0.6);
+}
+
+/* ===============================
+   CONTENT
+   =============================== */
+
+.variantContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 3rem;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Reveal content on hover */
 .variantColumn:hover .variantContent {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Reduce content when not hovered */
-.variantColumn:not(:hover) .variantContent {
-  pointer-events: none;
-}
+/* ===============================
+   URDU TEXT
+   =============================== */
 
-/* Highlight middle / popular */
-.variantColumn.highlight {
-  background: rgba(0,0,0,0.15);
-}
-
-/* Urdu font */
 .urdu {
   font-family: "Noto Nastaliq Urdu", serif;
   direction: rtl;
   text-align: right;
 }
 
-/* Tag */
+/* ===============================
+   TAGS
+   =============================== */
+
 .variantTag {
   display: inline-block;
   padding: 6px 16px;
@@ -77,27 +147,34 @@
   background: rgba(255,255,255,0.15);
   margin-bottom: 1rem;
   font-size: 0.85rem;
+  color: #fff;
 }
 
 .variantTag.popular {
-  background: rgba(5,150,105,0.7);
+  background: rgba(5,150,105,0.85);
 }
 
-/* Name */
+/* ===============================
+   TITLES & TEXT
+   =============================== */
+
 .variantName {
   font-size: 2.4rem;
   margin-bottom: 0.5rem;
 }
 
-/* Description */
 .variantDesc {
   font-size: 1.05rem;
   line-height: 2;
   max-width: 420px;
   margin-bottom: 1.5rem;
+  opacity: 0.95;
 }
 
-/* Specs */
+/* ===============================
+   SPECS
+   =============================== */
+
 .variantSpecs {
   list-style: none;
   padding: 0;
@@ -110,7 +187,10 @@
   opacity: 0.9;
 }
 
-/* Button */
+/* ===============================
+   BUTTON
+   =============================== */
+
 .variantBtn {
   background: #0f7a4a;
   color: #fff;
@@ -119,13 +199,17 @@
   border-radius: 999px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .variantBtn:hover {
   background: #0c633d;
 }
 
-/* Mobile fallback */
+/* ===============================
+   MOBILE FALLBACK
+   =============================== */
+
 @media (max-width: 900px) {
   .variantStrip {
     flex-direction: column;
@@ -143,5 +227,9 @@
   .variantContent {
     opacity: 1;
     transform: none;
+  }
+
+  .variantColumn::before {
+    background: rgba(0,0,0,0.55);
   }
 }
