@@ -1,32 +1,28 @@
 import React from "react";
 import "./Areas.css";
-import pakistanMap from "/src/assets/map-pic.png";
 
 export default function Areas() {
   const setActive = (e, area) => {
     const wrapper = e.currentTarget.closest(".mapWrapper");
-    wrapper.dataset.active = area;
+    if (wrapper) wrapper.dataset.active = area;
   };
 
   const clearActive = (e) => {
     const wrapper = e.currentTarget.closest(".mapWrapper");
-    wrapper.dataset.active = "";
+    if (wrapper) wrapper.dataset.active = "";
   };
 
   return (
     <section id="areas" className="section">
       <div className="container">
-
         <div className="sectionHeader">
           <h2 className="urduTitle">ہماری سروس کوریج</h2>
         </div>
 
-
         <div className="mapCard">
           <div className="mapWrapper" data-active="">
-
             <img
-              src={pakistanMap}
+              src="/assets/map-pic.png"
               alt="Pakistan Service Coverage Map"
               className="pakistanMap"
             />
@@ -39,7 +35,8 @@ export default function Areas() {
             >
               <span className="markerIcon">🌾</span>
               <span className="markerLabel">
-                فارم سروس<br />
+                فارم سروس
+                <br />
                 <small>پورا پاکستان</small>
               </span>
             </div>
@@ -52,14 +49,13 @@ export default function Areas() {
             >
               <span className="markerIcon">🌿</span>
               <span className="markerLabel">
-                فصلیں<br />
+                فصلیں
+                <br />
                 <small>صرف پنجاب اور KPK</small>
               </span>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

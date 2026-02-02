@@ -19,7 +19,7 @@ export default function Testimonials() {
 
         <div className="cards">
           <article className="card">
-            <img src="/src/assets/farmer-1.jpg" alt="محمد اسلم" />
+            <img src="/assets/farmer-1.jpg" alt="محمد اسلم" />
             <blockquote>
               AGRON نے میری زمین کو ایک نئی طاقت دی ہے۔
               اسپرے اب نہ صرف تیز ہے بلکہ انتہائی درست بھی۔
@@ -32,7 +32,7 @@ export default function Testimonials() {
           </article>
 
           <article className="card highlight">
-            <img src="/src/assets/farmer-2.jpg" alt="رمیش کمار" />
+            <img src="/assets/farmer-2.jpg" alt="رمیش کمار" />
             <blockquote>
               میں نے پہلی بار ٹیکنالوجی کو فصل کے ساتھ
               اتنا ہم آہنگ دیکھا ہے۔

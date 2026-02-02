@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import "./Services.css";
-import stepProtect from "/src/assets/step-1.png";
-import stepGrow from "/src/assets/step-2.png";
-import stepObserve from "/src/assets/step-3.png";
-import stepDecide from "/src/assets/step-4.png";
 
 export default function Services() {
   const [open, setOpen] = useState(null);
@@ -13,7 +9,7 @@ export default function Services() {
       id: 1,
       title: "فصل کا تحفظ",
       tagline: "جتنی ضرورت، اتنا اسپرے",
-      image: "/src/assets/step-1.png",
+      image: "/assets/step-1.png",
       details: [
         "جڑی بوٹی مار، فنگس اور کیڑے مار اسپرے",
         "یکساں کوریج، کم کیمیکل ضیاع",
@@ -24,7 +20,7 @@ export default function Services() {
       id: 2,
       title: "بہتر افزائش",
       tagline: "ہر بیج صحیح جگہ",
-      image: "/src/assets/step-2.png",
+      image: "/assets/step-2.png",
       details: [
         "کھاد اور بیج اسپرے سہولت",
         "گرینول سپریڈنگ (0.5–0.6 ملی میٹر)",
@@ -35,7 +31,7 @@ export default function Services() {
       id: 3,
       title: "نگرانی",
       tagline: "مسئلہ آنے سے پہلے خبردار",
-      image: "/src/assets/step-3.png",
+      image: "/assets/step-3.png",
       details: [
         "فصل کی فضائی نگرانی",
         "ابتدائی بیماری اور کمزوری کی نشاندہی",
@@ -46,7 +42,7 @@ export default function Services() {
       id: 4,
       title: "درست فیصلہ",
       tagline: "اندازے نہیں، ڈیٹا پر فیصلے",
-      image: "/src/assets/step-4.png",
+      image: "/assets/step-4.png",
       details: [
         "پیداوار کے بہتر اندازے",
         "کٹائی کی منصوبہ بندی",
@@ -89,7 +85,9 @@ export default function Services() {
                 <div className="stepBody">
                   <ul>
                     {s.details.map((d) => (
-                      <li key={d} className="urdu">{d}</li>
+                      <li key={d} className="urdu">
+                        {d}
+                      </li>
                     ))}
                   </ul>
                 </div>

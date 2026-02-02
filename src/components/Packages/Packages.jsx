@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Packages.css";
-import sprayImg from "../../assets/dronespray.png";
 
 export default function Packages() {
   const [open, setOpen] = useState(false);
@@ -11,12 +10,14 @@ export default function Packages() {
 
         {/* LEFT IMAGE PANEL */}
         <div className="packagesImage">
-          <img src={sprayImg} alt="ڈرون کے ذریعے فصلوں کا اسپرے" />
+          <img
+            src="/assets/dronespray.png"
+            alt="ڈرون کے ذریعے فصلوں کا اسپرے"
+          />
         </div>
 
         {/* RIGHT CONTENT */}
         <div className="packagesContent">
-
           <div className="packageCard">
 
             <h2 className="packagesTitle">ڈرون اسپرے سروس</h2>
@@ -64,7 +65,6 @@ export default function Packages() {
             )}
 
           </div>
-
         </div>
       </div>
     </section>

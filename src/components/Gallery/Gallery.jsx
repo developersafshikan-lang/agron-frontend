@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Gallery.css";
 
-import droneSpray from "/src/assets/drone-spray.png";
-import chargingStation from "/src/assets/charging-station.png";
-import fields from "/src/assets/fields.png";
-import teamSession from "/src/assets/team-session.png";
-
 const items = [
-  { title: "ڈرون اسپرے", image: droneSpray },
-  { title: "چارجنگ اسٹیشن", image: chargingStation },
-  { title: "کھیتوں کی تصاویر", image: fields },
-  { title: "ٹیم سیشنز", image: teamSession },
+  { title: "ڈرون اسپرے", image: "/assets/drone-spray.png" },
+  { title: "چارجنگ اسٹیشن", image: "/assets/charging-station.png" },
+  { title: "کھیتوں کی تصاویر", image: "/assets/fields.png" },
+  { title: "ٹیم سیشنز", image: "/assets/team-session.png" },
 ];
 
 export default function Gallery() {
@@ -36,7 +31,7 @@ export default function Gallery() {
         <div
           className="galleryTrack"
           style={{
-            width: `${items.length * 100}%`,     // 🔥 THIS FIXES IT
+            width: `${items.length * 100}%`,
             transform: `translateX(-${index * (100 / items.length)}%)`,
           }}
         >
