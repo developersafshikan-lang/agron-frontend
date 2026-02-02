@@ -10,7 +10,7 @@ export default function Header() {
         {/* BRAND */}
         <div className="brand">
           <div className="logo">
-            <img src="/assets/logo-1.png" alt="Agron Logo" />
+            <img src="/assets/imp-logo.jpeg" alt="Agron Logo" />
           </div>
 
           <div className="brandText">

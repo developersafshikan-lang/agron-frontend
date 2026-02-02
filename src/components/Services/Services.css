@@ -1,90 +1,156 @@
+/* ============================= */
+/* SERVICES SECTION BASE */
+/* ============================= */
+.servicesSection {
+  --mint: #f3faf6;              /* global mint tone */
+  background: var(--mint);
+}
+
+/* ============================= */
+/* FULL-WIDTH MINT HEADER BAND */
+/* ============================= */
+.servicesHeader {
+  background: var(--mint);
+
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
+  padding: 56px 64px;
+}
+
+/* Header layout: left subtitle, right title */
+.servicesHeader .sectionHeader {
+  max-width: none;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.servicesHeader .sectionSub {
+  justify-self: start;
+  text-align: left;
+}
+
+.servicesHeader .h2 {
+  justify-self: end;
+  text-align: right;
+}
+
+/* ============================= */
+/* FULL WIDTH STEPS BACKGROUND */
+/* ============================= */
+.stepsBackground {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* ============================= */
+/* STEPS FLOW */
+/* ============================= */
 .stepsFlow {
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  margin-top: 48px;
+  gap: 0;
 }
 
-/* Step container with image */
+/* ============================= */
+/* STEP BOX */
+/* ============================= */
 .stepBox {
   position: relative;
-  border-radius: 26px;
-  min-height: 220px;
+  min-height: 260px;
+  width: 100%;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.4s ease;
 }
 
-.stepBox:hover {
-  transform: translateY(-6px);
+/* Rounded edges only at start & end */
+.stepBox:first-child {
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
 }
 
-/* Dark overlay for readability */
+.stepBox:last-child {
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+
+/* ============================= */
+/* MINT SEPARATORS BETWEEN QADAM */
+/* ============================= */
+.stepBox:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: var(--mint);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ============================= */
+/* IMAGE OVERLAY */
+/* ============================= */
 .stepOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.15)
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.2)
   );
-  transition: opacity 0.4s ease;
+  z-index: 1;
 }
 
-.stepBox.open .stepOverlay {
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.25)
-  );
-}
-
-/* Content card */
+/* ============================= */
+/* STEP CONTENT */
+/* ============================= */
 .stepContent {
   position: relative;
-  z-index: 2;
-  max-width: 520px;
-  padding: 28px 32px;
-  color: #fff;
+  z-index: 4;
+  max-width: 560px;
+  padding: 40px 48px;
+  color: #ffffff;
 }
 
+/* Header always visible */
 .stepHeader {
   display: flex;
   gap: 18px;
+  align-items: center;
 }
 
-.stepNo {
-  font-size: 22px;
-  font-weight: 900;
-  color: #7CFFB2;
-  min-width: 72px;
-}
-
-.stepTitle {
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.stepTagline {
-  font-size: 14px;
-  opacity: 0.9;
-  margin-top: 4px;
-}
-
-/* Expandable body */
+/* ============================= */
+/* COLLAPSED / EXPANDED BODY */
+/* ============================= */
 .stepBody {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.45s ease;
+  opacity: 0;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.3s ease;
 }
 
+/* Expand on hover OR click (.open from React) */
+.stepBox:hover .stepBody,
 .stepBox.open .stepBody {
-  max-height: 220px;
-  margin-top: 14px;
+  max-height: 260px;
+  opacity: 1;
+  margin-top: 16px;
 }
 
+/* ============================= */
+/* LIST STYLING */
+/* ============================= */
 .stepBody ul {
   list-style: none;
   padding: 0;
@@ -95,40 +161,35 @@
   font-size: 14px;
   line-height: 1.9;
   position: relative;
-  padding-right: 16px;
+  padding-right: 18px;
 }
 
 .stepBody li::before {
   content: "•";
   position: absolute;
   right: 0;
-  color: #7CFFB2;
+  color: #7cffb2;
   font-weight: 900;
 }
 
-/* Arrow */
-.arrowDown {
-  position: absolute;
-  bottom: -26px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
-  color: var(--green-700);
-  opacity: 0.7;
+/* ============================= */
+/* OPTIONAL VISUAL CUE */
+/* ============================= */
+.stepHeader::after {
+  content: "↓";
+  margin-right: auto;
+  font-size: 18px;
+  opacity: 0.6;
+  transition: transform 0.3s ease;
 }
 
-/* CTA */
-.serviceCTA {
-  margin-top: 48px;
-  padding: 20px 24px;
-  background: rgba(5,150,105,0.1);
-  border-radius: 16px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.9;
+.stepBox:hover .stepHeader::after {
+  transform: rotate(180deg);
 }
 
-/* Urdu helper */
+/* ============================= */
+/* URDU SUPPORT */
+/* ============================= */
 .urdu {
   font-family: "Noto Nastaliq Urdu", serif;
   direction: rtl;

@@ -4,13 +4,8 @@
 
    .areasSection {
     padding: 90px 0;
-    background:
-      radial-gradient(circle at center, #f3faf6 0%, #ffffff 65%);
+    background: radial-gradient(circle at center, #f3faf6 0%, #ffffff 65%);
   }
-  
-  /* ===============================
-     CONTAINER
-     =============================== */
   
   .areasContainer {
     max-width: 1250px;
@@ -24,15 +19,13 @@
   
   .areasHeader {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 48px;
   }
   
   .urduTitle {
     font-family: "Noto Nastaliq Urdu", serif;
     font-size: 2.3rem;
-    font-weight: 600;
     color: #143c2b;
-    line-height: 1.9;
   }
   
   .areasIntro {
@@ -40,17 +33,56 @@
     font-family: "Noto Nastaliq Urdu", serif;
     font-size: 15px;
     color: #4b6b5c;
-    line-height: 1.9;
   }
   
   /* ===============================
-     MAP WRAPPER
+     LAYOUT
+     =============================== */
+  
+  .areasLayout {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  /* ===============================
+     SIDE SERVICES
+     =============================== */
+  
+  .areasSide {
+    width: 260px;
+  }
+  
+  .serviceItem {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+  }
+  
+  .serviceItem small {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+  
+  .serviceItem:hover,
+  .serviceItem.active {
+    background: #2fa56f;
+    color: #ffffff;
+  }
+  
+  /* ===============================
+     MAP
      =============================== */
   
   .areasMapWrap {
-    margin: 0 auto;
-    max-width: 1050px;
-    padding: 36px 40px;
+    flex: 1;
+    padding: 36px;
     border-radius: 32px;
     background: linear-gradient(135deg, #f6fbf8, #ffffff);
     box-shadow: 0 26px 70px rgba(0,0,0,0.08);
@@ -67,97 +99,52 @@
   }
   
   /* ===============================
-     MAP LABELS
+     MAP OVERLAYS
      =============================== */
   
-  .mapLabel {
+  .mapOverlay {
     position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #ffffff;
-    padding: 10px 16px;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    font-family: "Noto Nastaliq Urdu", serif;
-    color: #143c2b;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
   
-  /* ICON */
-  .labelIcon {
-    width: 38px;
-    height: 38px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #2fa56f;
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 18px;
+  /* Entire Pakistan */
+  .mapOverlay.all {
+    background: rgba(47, 165, 111, 0.35);
   }
   
-  /* TEXT */
-  .labelText {
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.6;
-    text-align: right;
+  /* Punjab + KPK ONLY (MASKED) */
+  .mapOverlay.pk {
+    background: rgba(47, 165, 111, 0.55);
+  
+    -webkit-mask-image: url("/assets/punjab-kpk-mask.png");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+  
+    mask-image: url("/assets/punjab-kpk-mask.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
   }
   
-  .labelText small {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 500;
-    opacity: 0.7;
-  }
-  
-  /* ===============================
-     LABEL POSITIONS
-     =============================== */
-  
-  .mapLabel.farms {
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .mapLabel.crops {
-    top: 28%;
-    left: 56%;
-    transform: translate(-50%, -50%);
+  .mapOverlay.show {
+    opacity: 1;
   }
   
   /* ===============================
      MOBILE
      =============================== */
   
-  @media (max-width: 768px) {
-    .areasSection {
-      padding: 70px 0;
+  @media (max-width: 900px) {
+    .areasLayout {
+      flex-direction: column;
     }
   
-    .areasMapWrap {
-      padding: 22px 18px;
-      border-radius: 24px;
-    }
-  
-    .mapLabel {
-      padding: 8px 12px;
-      gap: 8px;
-    }
-  
-    .labelIcon {
-      width: 32px;
-      height: 32px;
-      font-size: 16px;
-    }
-  
-    .labelText {
-      font-size: 0.85rem;
-    }
-  
-    .urduTitle {
-      font-size: 1.9rem;
+    .areasSide {
+      width: 100%;
     }
   }
   

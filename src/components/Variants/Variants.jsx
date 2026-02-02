@@ -1,5 +1,5 @@
 import "./Variants.css";
-import React from "react";  
+import React from "react";
 
 export default function Variants() {
   return (
@@ -21,7 +21,6 @@ export default function Variants() {
                 کم لاگت میں مؤثر اسپرے، روزمرہ فارمنگ کے لیے قابلِ اعتماد حل۔
               </p>
 
-              {/* BENEFIT PILLS */}
               <div className="variantPills">
                 <span className="variantPill">کسان دوست سروس</span>
                 <span className="variantPill">کم پانی، کم ضیاع</span>
@@ -46,7 +45,6 @@ export default function Variants() {
                 بڑے زرعی رقبے، تیز رفتار اسپرے اور جدید فارمنگ کے لیے مکمل حل۔
               </p>
 
-              {/* BENEFIT PILLS */}
               <div className="variantPills">
                 <span className="variantPill">تیز کوریج</span>
                 <span className="variantPill">بڑے فارم کے لیے طاقتور</span>

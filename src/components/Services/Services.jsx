@@ -52,15 +52,20 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="section sectionAlt">
-      <div className="container">
+    <section id="services" className="servicesSection">
+      
+      {/* ===== WHITE HEADER AREA ===== */}
+      <div className="container servicesHeader">
         <div className="sectionHeader center">
           <h2 className="h2 urdu">مٹی سے آسمان تک</h2>
           <p className="sectionSub urdu">
             فصل کی مکمل کہانی — تحفظ سے فیصلے تک
           </p>
         </div>
+      </div>
 
+      {/* ===== FULL WIDTH BACKGROUND STEPS ===== */}
+      <div className="stepsBackground">
         <div className="stepsFlow">
           {steps.map((s, i) => (
             <div
@@ -99,11 +104,8 @@ export default function Services() {
             </div>
           ))}
         </div>
-
-        <div className="serviceCTA urdu">
-          AGRON کے ساتھ فصل کی کہانی بدلیں — آج ہی رابطہ کریں
-        </div>
       </div>
+
     </section>
   );
 }

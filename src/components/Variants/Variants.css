@@ -2,234 +2,198 @@
    BACKGROUND SECTION
    =============================== */
 
-.variantsHero {
-  height: 90vh;
-  background-image: url("/assets/variants-bg.png");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle vignette */
-.variantsHero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.45) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-
-.variantPills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 1.5rem;
-}
-
-.variantPill {
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.9);
-  color: #0f3d2e;
-  font-size: 0.9rem;
-  font-weight: 600;
-  backdrop-filter: blur(4px);
-}
-
-
-/* ===============================
-   GLOBAL DARK OVERLAY (ALWAYS)
-   =============================== */
-
-.variantsOverlay {
-  height: 100%;
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.45),
-    rgba(0,0,0,0.35)
-  );
-}
-
-/* ===============================
-   STRIP LAYOUT
-   =============================== */
-
-.variantStrip {
-  display: flex;
-  height: 100%;
-}
-
-/* ===============================
-   EACH COLUMN
-   =============================== */
-
-.variantColumn {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  transition: flex 0.6s ease;
-  overflow: hidden;
-}
-
-/* Expand on hover */
-.variantColumn:hover {
-  flex: 1.6;
-}
-
-/* ===============================
-   COLUMN DARK OVERLAY (DEFAULT)
-   =============================== */
-
-.variantColumn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  transition: background 0.4s ease;
-  z-index: 1;
-}
-
-/* DARKER ON HOVER (FOCUS) */
-.variantColumn:hover::before {
-  background: rgba(0,0,0,0.6);
-}
-
-/* ===============================
-   CONTENT
-   =============================== */
-
-.variantContent {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 3rem;
-  color: #ffffff;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* Reveal content on hover */
-.variantColumn:hover .variantContent {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===============================
-   URDU TEXT
-   =============================== */
-
-.urdu {
-  font-family: "Noto Nastaliq Urdu", serif;
-  direction: rtl;
-  text-align: right;
-}
-
-/* ===============================
-   TAGS
-   =============================== */
-
-.variantTag {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.15);
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-  color: #fff;
-}
-
-.variantTag.popular {
-  background: rgba(5,150,105,0.85);
-}
-
-/* ===============================
-   TITLES & TEXT
-   =============================== */
-
-.variantName {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
-}
-
-.variantDesc {
-  font-size: 1.05rem;
-  line-height: 2;
-  max-width: 420px;
-  margin-bottom: 1.5rem;
-  opacity: 0.95;
-}
-
-/* ===============================
-   SPECS
-   =============================== */
-
-.variantSpecs {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2rem;
-}
-
-.variantSpecs li {
-  font-size: 0.95rem;
-  line-height: 1.9;
-  opacity: 0.9;
-}
-
-/* ===============================
-   BUTTON
-   =============================== */
-
-.variantBtn {
-  background: #0f7a4a;
-  color: #fff;
-  border: none;
-  padding: 14px 30px;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.variantBtn:hover {
-  background: #0c633d;
-}
-
-/* ===============================
-   MOBILE FALLBACK
-   =============================== */
-
-@media (max-width: 900px) {
+   .variantsHero {
+    height: 90vh;
+    background-image: url("/assets/variants-bg.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Soft cinematic vignette (NOT dark) */
+  .variantsHero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0.05) 0%,
+      rgba(0,0,0,0.25) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* ===============================
+     LIGHT GLOBAL OVERLAY (ALMOST NONE)
+     =============================== */
+  
+  .variantsOverlay {
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    background: rgba(0,0,0,0.06);
+  }
+  
+  /* ===============================
+     STRIP LAYOUT
+     =============================== */
+  
   .variantStrip {
-    flex-direction: column;
+    display: flex;
+    height: 100%;
   }
-
+  
+  /* ===============================
+     EACH COLUMN
+     =============================== */
+  
   .variantColumn {
-    flex: unset;
-    height: 50vh;
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: flex 0.6s ease;
+    overflow: hidden;
   }
-
+  
+  /* Expand on hover */
   .variantColumn:hover {
-    flex: unset;
+    flex: 1.6;
   }
-
-  .variantContent {
-    opacity: 1;
-    transform: none;
-  }
-
+  
+  /* ===============================
+     COLUMN OVERLAY (MAIN FIX)
+     =============================== */
+  
+  /* DEFAULT: almost no darkening */
   .variantColumn::before {
-    background: rgba(0,0,0,0.55);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.08);
+    transition: background 0.4s ease;
+    z-index: 1;
   }
-}
+  
+  /* HOVER: readable contrast */
+  .variantColumn:hover::before {
+    background: rgba(0,0,0,0.45);
+  }
+  
+  /* ===============================
+     CONTENT
+     =============================== */
+  
+  .variantContent {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 3rem;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  /* Reveal on hover */
+  .variantColumn:hover .variantContent {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ===============================
+     URDU TEXT
+     =============================== */
+  
+  .urdu {
+    font-family: "Noto Nastaliq Urdu", serif;
+    direction: rtl;
+    text-align: right;
+  }
+  
+  /* ===============================
+     TAGS
+     =============================== */
+  
+  .variantTag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.18);
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #fff;
+  }
+  
+  .variantTag.popular {
+    background: rgba(5,150,105,0.9);
+  }
+  
+  /* ===============================
+     TITLES & TEXT
+     =============================== */
+  
+  .variantName {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .variantDesc {
+    font-size: 1.05rem;
+    line-height: 2;
+    max-width: 420px;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+  }
+  
+  /* ===============================
+     PILLS
+     =============================== */
+  
+  .variantPills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+  
+  .variantPill {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    color: #0f3d2e;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+  }
+  
+  /* ===============================
+     MOBILE FALLBACK
+     =============================== */
+  
+  @media (max-width: 900px) {
+    .variantStrip {
+      flex-direction: column;
+    }
+  
+    .variantColumn {
+      height: 50vh;
+      flex: unset;
+    }
+  
+    .variantColumn:hover {
+      flex: unset;
+    }
+  
+    .variantContent {
+      opacity: 1;
+      transform: none;
+    }
+  
+    .variantColumn::before {
+      background: rgba(0,0,0,0.45);
+    }
+  }
+  
