@@ -8,43 +8,41 @@ export default function Testimonials() {
 
       <div className="content">
         <p className="mission-line">
-          یہ وہ لوگ ہیں جن کے لیے ہم AGRON بنا رہے ہیں
+          یہ وہ کسان ہیں جن کے لیے ہم AGRON تیار کر رہے ہیں
         </p>
 
         <h2 className="title">کسانوں کی آواز</h2>
 
         <p className="subtitle">
-          جدید ڈرون ٹیکنالوجی، حقیقی زمینی نتائج
+          حقیقی کھیت، حقیقی نتائج
         </p>
 
         <div className="cards">
           <article className="card">
             <img src="/assets/farmer-1.jpg" alt="محمد اسلم" />
             <blockquote>
-              AGRON نے میری زمین کو ایک نئی طاقت دی ہے۔
-              اسپرے اب نہ صرف تیز ہے بلکہ انتہائی درست بھی۔
-              کم لاگت، بہتر فصل — یہی اصل فائدہ ہے۔
+              AGRON کی ڈرون اسپرے سروس نے ہمارا کام آسان بنا دیا ہے۔
+              پہلے پورا دن لگ جاتا تھا، اب کم وقت میں بہتر اسپرے ہو جاتا ہے۔
+              دوا بھی کم استعمال ہوتی ہے اور فصل محفوظ رہتی ہے۔
             </blockquote>
             <footer>
               <strong>محمد اسلم</strong>
-              <span>گندم و چاول کے کاشتکار — پنجاب</span>
+              <span>گندم اور چاول کے کاشتکار، پنجاب</span>
             </footer>
           </article>
 
           <article className="card highlight">
-            <img src="/assets/farmer-2.jpg" alt="رمیش کمار" />
+            <img src="/assets/farmer-2.jpg" alt="عبدالرحمان" />
             <blockquote>
-              میں نے پہلی بار ٹیکنالوجی کو فصل کے ساتھ
-              اتنا ہم آہنگ دیکھا ہے۔
-              AGRON نے وقت، پیسہ اور محنت — تینوں بچائے۔
+              ہم نے AGRON کی سروس آزمائی اور نتائج خود دیکھے۔
+              اسپرے یکساں ہوتا ہے اور فصل کو کوئی نقصان نہیں پہنچتا۔
+              محنت بھی کم ہوئی اور خرچ بھی قابو میں رہا۔
             </blockquote>
             <footer>
-              <strong>رمیش کمار</strong>
-              <span>کپاس کے کاشتکار — سندھ</span>
+              <strong>عبدالرحمان</strong>
+              <span>کپاس کے کاشتکار، جنوبی پنجاب</span>
             </footer>
           </article>
-
-  
         </div>
       </div>
     </section>

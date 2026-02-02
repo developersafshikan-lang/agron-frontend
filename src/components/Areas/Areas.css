@@ -1,163 +1,163 @@
 /* ===============================
-   MAP CARD
+   SECTION BASE
    =============================== */
 
-.mapCard {
-  margin-top: 28px;
-  padding: 28px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #f3f8f4, #ffffff);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-}
-
-/* ===============================
-   MAP WRAPPER
-   =============================== */
-
-.mapWrapper {
-  position: relative;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-/* ===============================
-   REGION GLOW SYSTEM
-   =============================== */
-
-.mapWrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at var(--focus-x, 50%) var(--focus-y, 50%),
-    rgba(47,165,111,0.22),
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-/* FARM SERVICES — WHOLE COUNTRY */
-.mapWrapper[data-active="farms"]::after {
-  opacity: 1;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(47,165,111,0.18),
-    rgba(47,165,111,0.08),
-    transparent 65%
-  );
-}
-
-/* CROPS — PUNJAB + KPK */
-.mapWrapper[data-active="crops"]::after {
-  opacity: 1;
-  background:
-    radial-gradient(circle at 55% 32%, rgba(47,165,111,0.28), transparent 40%),
-    radial-gradient(circle at 52% 22%, rgba(47,165,111,0.22), transparent 38%);
-}
-
-/* ===============================
-   MAP IMAGE
-   =============================== */
-
-.pakistanMap {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.14));
-  transition: transform 0.6s ease;
-}
-
-.mapWrapper:hover .pakistanMap {
-  transform: scale(1.015);
-}
-
-/* ===============================
-   SERVICE MARKERS
-   =============================== */
-
-.serviceMarker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 6;
-  text-align: center;
-}
-
-/* ICON */
-.markerIcon {
-  display: inline-flex;
-  width: 46px;
-  height: 46px;
-  align-items: center;
-  justify-content: center;
-  background: #2fa56f;
-  color: #fff;
-  font-size: 22px;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8px rgba(47,165,111,0.25),
-    0 14px 30px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease;
-}
-
-/* LABEL */
-.markerLabel {
-  margin-top: 10px;
-  display: inline-block;
-  background: #ffffff;
-  padding: 10px 18px;
-  border-radius: 16px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #143c2b;
-  opacity: 0;
-  transform: translateY(6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.markerLabel small {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 500;
-  opacity: 0.7;
-}
-
-/* HOVER BEHAVIOR */
-.serviceMarker:hover .markerIcon {
-  transform: scale(1.15);
-}
-
-.serviceMarker:hover .markerLabel {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===============================
-   MARKER POSITIONS
-   =============================== */
-
-/* Farms — center, whole country */
-.serviceMarker.farms {
-  top: 50%;
-  left: 50%;
-}
-
-/* Crops — Punjab / KPK region */
-.serviceMarker.crops {
-  top: 30%;
-  left: 55%;
-}
-
-
-
-.urduTitle {
-  font-family: "Noto Nastaliq Urdu", serif;
-  font-size: 2.2rem;
-  font-weight: 600;
-  text-align: center;
-  color: #143c2b;
-  line-height: 1.9;
-}
+   .areasSection {
+    padding: 90px 0;
+    background:
+      radial-gradient(circle at center, #f3faf6 0%, #ffffff 65%);
+  }
+  
+  /* ===============================
+     CONTAINER
+     =============================== */
+  
+  .areasContainer {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* ===============================
+     HEADER
+     =============================== */
+  
+  .areasHeader {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  
+  .urduTitle {
+    font-family: "Noto Nastaliq Urdu", serif;
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #143c2b;
+    line-height: 1.9;
+  }
+  
+  .areasIntro {
+    margin-top: 10px;
+    font-family: "Noto Nastaliq Urdu", serif;
+    font-size: 15px;
+    color: #4b6b5c;
+    line-height: 1.9;
+  }
+  
+  /* ===============================
+     MAP WRAPPER
+     =============================== */
+  
+  .areasMapWrap {
+    margin: 0 auto;
+    max-width: 1050px;
+    padding: 36px 40px;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #f6fbf8, #ffffff);
+    box-shadow: 0 26px 70px rgba(0,0,0,0.08);
+  }
+  
+  .areasMapInner {
+    position: relative;
+  }
+  
+  .areasMap {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 22px 40px rgba(0,0,0,0.14));
+  }
+  
+  /* ===============================
+     MAP LABELS
+     =============================== */
+  
+  .mapLabel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    font-family: "Noto Nastaliq Urdu", serif;
+    color: #143c2b;
+  }
+  
+  /* ICON */
+  .labelIcon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2fa56f;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  
+  /* TEXT */
+  .labelText {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: right;
+  }
+  
+  .labelText small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+  
+  /* ===============================
+     LABEL POSITIONS
+     =============================== */
+  
+  .mapLabel.farms {
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .mapLabel.crops {
+    top: 28%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* ===============================
+     MOBILE
+     =============================== */
+  
+  @media (max-width: 768px) {
+    .areasSection {
+      padding: 70px 0;
+    }
+  
+    .areasMapWrap {
+      padding: 22px 18px;
+      border-radius: 24px;
+    }
+  
+    .mapLabel {
+      padding: 8px 12px;
+      gap: 8px;
+    }
+  
+    .labelIcon {
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+    }
+  
+    .labelText {
+      font-size: 0.85rem;
+    }
+  
+    .urduTitle {
+      font-size: 1.9rem;
+    }
+  }
+  

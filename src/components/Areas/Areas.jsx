@@ -2,60 +2,49 @@ import React from "react";
 import "./Areas.css";
 
 export default function Areas() {
-  const setActive = (e, area) => {
-    const wrapper = e.currentTarget.closest(".mapWrapper");
-    if (wrapper) wrapper.dataset.active = area;
-  };
-
-  const clearActive = (e) => {
-    const wrapper = e.currentTarget.closest(".mapWrapper");
-    if (wrapper) wrapper.dataset.active = "";
-  };
-
   return (
-    <section id="areas" className="section">
-      <div className="container">
-        <div className="sectionHeader">
+    <section id="areas" className="areasSection">
+      <div className="areasContainer">
+
+        {/* HEADER */}
+        <div className="areasHeader">
           <h2 className="urduTitle">ہماری سروس کوریج</h2>
+          <p className="areasIntro">
+            ڈرون اسپرے اور فارم سروس درج ذیل علاقوں میں دستیاب ہے
+          </p>
         </div>
 
-        <div className="mapCard">
-          <div className="mapWrapper" data-active="">
+        {/* MAP */}
+        <div className="areasMapWrap">
+          <div className="areasMapInner">
+
             <img
               src="/assets/map-pic.png"
-              alt="Pakistan Service Coverage Map"
-              className="pakistanMap"
+              alt="Pakistan Service Coverage"
+              className="areasMap"
             />
 
-            {/* FARM SERVICES — ALL PAKISTAN */}
-            <div
-              className="serviceMarker farms"
-              onMouseEnter={(e) => setActive(e, "farms")}
-              onMouseLeave={clearActive}
-            >
-              <span className="markerIcon">🌾</span>
-              <span className="markerLabel">
+            {/* LABEL — FARM SERVICE */}
+            <div className="mapLabel farms">
+              <span className="labelIcon">🌾</span>
+              <span className="labelText">
                 فارم سروس
-                <br />
                 <small>پورا پاکستان</small>
               </span>
             </div>
 
-            {/* CROP SERVICES — PUNJAB + KPK */}
-            <div
-              className="serviceMarker crops"
-              onMouseEnter={(e) => setActive(e, "crops")}
-              onMouseLeave={clearActive}
-            >
-              <span className="markerIcon">🌿</span>
-              <span className="markerLabel">
-                فصلیں
-                <br />
+            {/* LABEL — CROP SPRAY */}
+            <div className="mapLabel crops">
+              <span className="labelIcon">🌿</span>
+              <span className="labelText">
+                فصل اسپرے
                 <small>صرف پنجاب اور KPK</small>
               </span>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

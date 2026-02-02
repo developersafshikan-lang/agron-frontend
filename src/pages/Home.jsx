@@ -30,7 +30,7 @@ export default function Home() {
         <Booking />
       </section>
       <Chatbot />
-      <footer style={{ padding: 24, borderTop: "1px solid #eee", textAlign: "center" }}>
+      <footer style={{ padding: 24, borderTop: "1px solid #eee", textAlign: "center" , fontFamily: "Noto Nastaliq Urdu", direction: "rtl"}}>
         <div>© Agron — پاکستان بھر کے کسانوں کے لیے</div>
       </footer>
     </div>
